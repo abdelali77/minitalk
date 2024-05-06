@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:55:35 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/04 21:19:59 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:22:28 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ void	send_signal(unsigned char c, int pid)
 	int				i;
 
 	i = 8;
+	bit = c;
 	while (i > 0)
 	{
-		bit = c >> i;
-		if (bit % 2 == 0)
-			kill(pid, SIGUSR2);
-		else
-			kill(pid, SIGUSR1);
-		usleep(42);
 		i--;
+		if ((c >> i) & 1)
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		usleep(100);
 	}
 }
 
