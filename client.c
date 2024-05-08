@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:55:35 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/06 18:22:28 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:37:35 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,23 @@
 
 void	send_signal(unsigned char c, int pid)
 {
-	unsigned char	bit;
-	int				i;
+	int	bit;
 
-	i = 8;
-	bit = c;
-	while (i > 0)
+	bit = 0;
+	while (bit < 8)
 	{
-		i--;
-		if ((c >> i) & 1)
-			kill(pid, SIGUSR1);
+		if (c & (1 << bit))
+		{
+			if (kill(pid, SIGUSR1) == -1)
+				exit(1);
+		}
 		else
-			kill(pid, SIGUSR2);
+		{
+			if (kill(pid, SIGUSR2) == -1)
+				exit(1);
+		}
 		usleep(100);
+		bit++;
 	}
 }
 
@@ -40,9 +44,12 @@ int	main(int argc, char **argv)
 	if (argc == 3)
 	{
 		if (is_digits(argv[1]))
-			server_pid = ft_atoi(argv[1]);
+			server_pid = to_num(argv[1]);
 		else if (server_pid <= 0 || !is_digits(argv[1]))
+		{
 			ft_printf("Enter a valid PID\n");
+			return(1);
+		}
 		while (argv[2][i])
 		{
 			send_signal(argv[2][i], server_pid);
@@ -51,4 +58,5 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_printf("Usage: ./client [PID] [MESSAGE]\n");
+	return (0);
 }
