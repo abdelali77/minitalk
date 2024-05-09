@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:56:09 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/08 16:33:12 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/09 15:51:26 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	signal_handler(int sig, siginfo_t *info, void *context)
 {
-	static int				bit;
-	static unsigned char	character;
+	static int		bit;
+	static int		character;
 	// static	char	*str;
 	// char			*s;
-	static pid_t			pid;
+	static pid_t	pid;
 
 	(void)context;
 	if (pid != info->si_pid)
@@ -33,9 +33,10 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 	if (bit == 8)
 	{
 		/* s = malloc(2 * sizeof(char));
-		s[0] = character;
+		s[0] = (char)character;
 		s[1] = '\0';
-		ft_strjoin(str, s); */
+		str = ft_strjoin(str, s);
+		printf("%s\n", str); */
 		ft_printf("%c", character);
 		character = 0;
 		bit = 0;

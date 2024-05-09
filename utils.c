@@ -6,22 +6,22 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:45:48 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/08 16:28:25 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/09 15:49:41 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-size_t  ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-    int     len;
+	int	len;
 
 	if (!s)
 		return (0);
-    len = 0;
-    while (s[len])
-        len++;
-    return (len);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }
 
 bool	is_digits(char *str)

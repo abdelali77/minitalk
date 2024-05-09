@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:55:35 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/08 16:37:35 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/09 15:51:00 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int argc, char **argv)
 		else if (server_pid <= 0 || !is_digits(argv[1]))
 		{
 			ft_printf("Enter a valid PID\n");
-			return(1);
+			return (1);
 		}
 		while (argv[2][i])
 		{
