@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:55:35 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/09 15:51:00 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:14:50 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,21 @@ int	main(int argc, char **argv)
 	if (argc == 3)
 	{
 		if (is_digits(argv[1]))
+		{
 			server_pid = to_num(argv[1]);
-		else if (server_pid <= 0 || !is_digits(argv[1]))
+			if (server_pid <= 0)
+			{
+				ft_printf("Not a Valid PID\n");
+				return (1);
+			}
+		}
+		else
 		{
 			ft_printf("Enter a valid PID\n");
 			return (1);
 		}
 		while (argv[2][i])
-		{
-			send_signal(argv[2][i], server_pid);
-			i++;
-		}
+			send_signal(argv[2][i++], server_pid);
 	}
 	else
 		ft_printf("Usage: ./client [PID] [MESSAGE]\n");
