@@ -6,7 +6,7 @@
 #    By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/28 21:09:25 by abmahfou          #+#    #+#              #
-#    Updated: 2024/05/10 12:12:16 by abmahfou         ###   ########.fr        #
+#    Updated: 2024/05/10 15:57:23 by abmahfou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SRC_BONUS = bonus/client_bonus.c \
 			bonus/utils_bonus.c
 
 SRC_BONUS_S = bonus/server_bonus.c \
-			 bonus/utils_bonus.c
+			  bonus/utils_bonus.c
 
 OBJS_C = $(SRC_C:.c=.o)
 
@@ -58,12 +58,9 @@ all: $(NAME) $(SERVER)
 %.o: %.c $(HEADER_BONUS)
 	$(CC) -c $(CFLAGS) $< -o $@
 
-$(SERVER): $(OBJS_S)
-	$(CC) $(CFLAGS) $(PRINTF) $(OBJS_S) -o $(SERVER)
-
-$(NAME): $(OBJS_C)
+$(NAME): $(OBJS_C) $(OBJS_S)
 	make -C printf
-	$(CC) $(CFLAGS) $(PRINTF) $(OBJS_C) -o $(NAME)
+	$(CC) $(CFLAGS) $(PRINTF) $(OBJS_C) -o $(NAME) && $(CC) $(CFLAGS) $(PRINTF) $(OBJS_S) -o $(SERVER)
 	@echo " __    __     __     __   __     __     ______   ______     __         __  __    "
 	@echo "/\\ \"-./  \\   /\\ \\   /\\ \"-.\\ \\   /\\ \\   /\\__  _\\ /\\  __ \\   /\\ \\       /\\ \\/ /    "
 	@echo "\\ \\ \\-./\\ \\  \\ \\ \\  \\ \\ \\-.  \\  \\ \\ \\  \\/_/\\ \\/ \\ \\  __ \\  \\ \\ \\____  \\ \\  _\"-.  "
@@ -71,12 +68,9 @@ $(NAME): $(OBJS_C)
 	@echo "  \\/_/  \\/_/   \\/_/   \\/_/ \\/_/   \\/_/     \\/_/   \\/_/\\/_/   \\/_____/   \\/_/\\/_/ "
 	@echo "                                                                                 "
 
-$(BONUS_S): $(OBJS_BONUS_S)
-	$(CC) $(CFLAGS) $(PRINTF) $(OBJS_BONUS_S) -o $(BONUS_S)
-
-$(BONUS): $(OBJS_BONUS)
+$(BONUS): $(OBJS_BONUS) $(OBJS_BONUS_S)
 	make -C printf
-	$(CC) $(CFLAGS) $(PRINTF) $(OBJS_BONUS) -o $(BONUS)
+	$(CC) $(CFLAGS) $(PRINTF) $(OBJS_BONUS) -o $(BONUS) && $(CC) $(CFLAGS) $(PRINTF) $(OBJS_BONUS_S) -o $(BONUS_S)
 
 bonus: $(BONUS) $(BONUS_S)
 
