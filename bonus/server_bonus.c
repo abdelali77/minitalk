@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 12:01:56 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/10 12:04:17 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/11 11:34:53 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	signal_handler(int sig, siginfo_t *info, void *context)
 	bit++;
 	if (bit == 8)
 	{
+		if (kill(pid, SIGUSR1) == -1)
+			exit(1);
 		ft_printf("%c", character);
 		character = 0;
 		bit = 0;
