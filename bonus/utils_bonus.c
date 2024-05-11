@@ -6,11 +6,23 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:45:48 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/10 18:54:47 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/11 16:41:21 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk_bonus.h"
+
+int	ft_strlen(char *s)
+{
+	int	i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 bool	is_digits(char *str)
 {

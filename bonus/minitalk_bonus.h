@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 11:33:25 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/10 12:06:57 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/11 16:41:53 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@
 
 int		to_num(char *str);
 bool	is_digits(char *str);
+int		ft_strlen(char *s);
 
 #endif

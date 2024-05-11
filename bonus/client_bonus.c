@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 11:33:09 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/11 11:30:41 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/11 16:52:20 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void	client_signal_handler(int sig, siginfo_t *info, void *context)
 	(void)context;
 	(void)info;
 	if (sig == SIGUSR1)
-	{
 		ft_printf("acknowledgement recieved !!\n");
-	}
 }
 
 void	send_signal(unsigned char c, int pid)
