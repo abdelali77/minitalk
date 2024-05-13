@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 11:33:09 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/11 16:52:20 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/11 18:24:10 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	main(int argc, char **argv)
 		}
 		while (argv[2][i])
 			send_signal(argv[2][i++], server_pid);
+		send_signal(argv[2][i], server_pid);
 	}
 	else
 		ft_printf("Usage: ./client [PID] [MESSAGE]\n");
