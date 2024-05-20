@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 11:33:09 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/11 18:24:10 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/20 13:35:41 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,24 @@ void	send_signal(unsigned char c, int pid)
 	}
 }
 
-int	main(int argc, char **argv)
+void	struct_init(void)
 {
 	struct sigaction	sa;
-	int					server_pid;
-	int					i;
 
 	sa.sa_sigaction = &client_signal_handler;
-	sa.sa_flags = SA_SIGINFO;
-	sigaction(SIGUSR1, &sa, NULL);
+	if (sigaction(SIGUSR1, &sa, NULL) == -1)
+	{
+		ft_printf("Error\n");
+		exit(1);
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	int	server_pid;
+	int	i;
+
+	struct_init();
 	i = 0;
 	server_pid = 0;
 	if (argc == 3)
