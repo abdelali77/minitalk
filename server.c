@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:56:09 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/20 13:36:06 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/26 15:06:24 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	main(void)
 	}
 	ft_printf("Server PID : %d\n", getpid());
 	while (1)
-		pause();
+	{
+	}
 	return (0);
 }
