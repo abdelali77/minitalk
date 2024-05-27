@@ -6,7 +6,7 @@
 #    By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/28 21:09:25 by abmahfou          #+#    #+#              #
-#    Updated: 2024/05/20 10:29:21 by abmahfou         ###   ########.fr        #
+#    Updated: 2024/05/27 10:35:29 by abmahfou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,6 @@ CC = cc
 RM = rm -rf
 
 HEADER = minitalk.h
-
-HEADER_BONUS = bonus/minitalk_bonus.h
 
 PRINTF = printf/libftprintf.a
 
@@ -53,9 +51,6 @@ OBJS_BONUS_S = $(SRC_BONUS_S:.c=.o)
 all: $(NAME) $(SERVER)
 
 %.o: %.c $(HEADER)
-	$(CC) -c $(CFLAGS) $< -o $@
-
-%.o: %.c $(HEADER_BONUS)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 $(NAME): $(OBJS_C) $(OBJS_S)
