@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:55:35 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/13 15:50:27 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/27 10:14:06 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	send_signal(unsigned char c, int pid)
 			if (kill(pid, SIGUSR2) == -1)
 				exit(1);
 		}
-		usleep(60);
+		usleep(200);
 		bit++;
 	}
 }
