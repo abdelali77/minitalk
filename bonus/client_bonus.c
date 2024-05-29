@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 11:33:09 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/27 10:17:03 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:21:22 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	struct_init(void)
 {
 	struct sigaction	sa;
 
+	ft_bzero(&sa, sizeof(sa));
 	sa.sa_sigaction = &client_signal_handler;
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
 	{
