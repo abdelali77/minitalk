@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:56:49 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/27 10:32:23 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:15:05 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@
 
 int		to_num(char *str);
 bool	is_digits(char *str);
+void	ft_bzero(void *s, size_t n);
 
 #endif

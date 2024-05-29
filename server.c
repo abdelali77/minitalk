@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:56:09 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/26 15:06:24 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:15:20 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(void)
 {
 	struct sigaction	sa;
 
+	ft_bzero(&sa, sizeof(sa));
 	sa.sa_sigaction = &signal_handler;
 	sa.sa_flags = SA_SIGINFO;
 	if (sigaction(SIGUSR1, &sa, NULL) == -1 
@@ -50,7 +51,6 @@ int	main(void)
 	}
 	ft_printf("Server PID : %d\n", getpid());
 	while (1)
-	{
-	}
+		;
 	return (0);
 }

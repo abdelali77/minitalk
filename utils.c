@@ -6,7 +6,7 @@
 /*   By: abmahfou <abmahfou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 15:45:48 by abmahfou          #+#    #+#             */
-/*   Updated: 2024/05/11 16:41:10 by abmahfou         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:18:37 by abmahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,23 @@ int	to_num(char *str)
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
-	if (res < 2)
+	if (res < 100)
 	{
 		ft_printf("Enter a valid PID\n");
 		exit(1);
 	}
 	else
 		return (res);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		*((unsigned char *)s + i) = '\0';
+		i++;
+	}
 }
